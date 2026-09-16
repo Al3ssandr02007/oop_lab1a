@@ -18,5 +18,7 @@ public class Main
         System.out.println("First Book Author: " + firstBook.author);
         System.out.println("First Book PageCount: " + firstBook.pageCount);
         System.out.println("First Book Available: " + firstBook.available);
+
+        firstBook.displayDetails();
     }
 }
