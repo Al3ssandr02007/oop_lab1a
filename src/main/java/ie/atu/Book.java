@@ -22,4 +22,18 @@ public class Book {
     {
         return title !=null && title.equalsIgnoreCase(searchTitle);
     }
+
+    public void borrowBook()
+    {
+        if (available)
+        {
+            available = false;
+            System.out.println(title + " has been borrowed");
+
+        }
+        else
+        {
+            System.out.println(title + " is already borrowed");
+        }
+    }
 }

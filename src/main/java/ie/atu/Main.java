@@ -1,6 +1,7 @@
 package ie.atu;
 
 import java.sql.SQLOutput;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -20,5 +21,23 @@ public class Main
         System.out.println("First Book Available: " + firstBook.available);
 
         firstBook.displayDetails();
+        System.out.println("Long book: " + firstBook.isLongBook());
+        firstBook.borrowBook();
+        firstBook.displayDetails();
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter Book Title: ");
+        String title = input.nextLine();
+        System.out.println("You entered " + title);
+        Book newbook = new Book();
+        newbook.title = title;
+        if(newbook.hasTitle(title))
+        {
+            System.out.println(title + " Book Title already Exists");
+        }
+        else
+        {
+            System.out.println(title + " No Book Title Exists");
+        }
     }
-}
+    }
