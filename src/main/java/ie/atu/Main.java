@@ -3,15 +3,9 @@ package ie.atu;
 
 public class Main {
     public static void main(String[] args) {
-        try
-        {
-            Book myBook = new Book("Dune", "Author", 412);
-            System.out.println(myBook.getTitle());
-            System.out.println(myBook.getAuthor()); //code
-        } catch (IllegalArgumentException ex) {
-            System.out.println(ex.getMessage());
-        }
-
+        Book book = new Book("Dune", "Frank Herbert", 412);
+        System.out.println(book.getStatus());
+        book.borrowBook();
+        System.out.println(book.getStatus());
     }
-
 }
