@@ -7,7 +7,7 @@ public class Main {
         {
             Book myBook = new Book("Dune", "Author", 412);
             System.out.println(myBook.getTitle());
-            System.out.println(myBook.getAuthor());
+            System.out.println(myBook.getAuthor()); //code
         } catch (IllegalArgumentException ex) {
             System.out.println(ex.getMessage());
         }
