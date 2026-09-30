@@ -12,7 +12,7 @@ public class Main {
         System.out.println(first.getStatus());
         System.out.println(second.getStatus());
         try {
-            service.loanBook(first, 15);
+              service.loanBook(first, 15);
         } catch (IllegalArgumentException ex) {
             System.out.println(ex.getMessage());
         }
