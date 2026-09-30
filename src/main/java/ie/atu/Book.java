@@ -51,5 +51,11 @@ public class Book {
         status = BookStatus.ON_LOAN;
     }
 
+    public void returnBook() {
+        if (status == BookStatus.AVAILABLE) {
+            throw new IllegalStateException("Book is already available");
+        }
+        status = BookStatus.AVAILABLE;
+    }
+
 }
-//code
