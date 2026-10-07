@@ -56,6 +56,6 @@ public class Book {
             throw new IllegalStateException("Book is already available");
         }
         status = BookStatus.AVAILABLE;
-    }
+    }/
 
 }
