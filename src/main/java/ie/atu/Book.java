@@ -1,9 +1,12 @@
+
 package ie.atu;
 
 public class Book {
     private String title;
     private String author;
     private int pageCount;
+    private boolean borrowed;
+    private BookStatus status;
 
     public Book(String title, String author, int pageCount) {
         if (title == null || title.isBlank()) {
@@ -19,20 +22,44 @@ public class Book {
         this.title = title;
         this.author = author;
         this.pageCount = pageCount;
+        this.borrowed = false;
+        this.status = BookStatus.AVAILABLE;
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
-    public String getAuthor()
-    {
+    public String getAuthor() {
         return author;
     }
 
-    public int getPageCount()
-    {
+    public int getPageCount() {
         return pageCount;
+    }
+
+    public BookStatus getStatus() {
+        return status;
+    }
+
+    public boolean isBorrowed() {
+        return borrowed;
+    }
+
+    public void borrowBook() {
+        if (status == BookStatus.ON_LOAN)
+        {
+            throw new IllegalStateException("Book is on loan");
+        }
+        status = BookStatus.ON_LOAN;
+    }
+
+    public void returnBook()
+    {
+        if (status == BookStatus.AVAILABLE)
+        {
+            throw new IllegalStateException("Book is already available");
+        }
+        status = BookStatus.AVAILABLE;
     }
 }

@@ -1,15 +1,54 @@
 package ie.atu;
 
 
+
+
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Main {
-    public static void main(String[] args) {
-        try
-        {
-            Book myBook = new Book("Dune", "Author", 412);
-            System.out.println(myBook.getTitle());
-            System.out.println(myBook.getAuthor());
-        } catch (IllegalArgumentException ex) {
-            System.out.println(ex.getMessage());
+    public static void main(String[] args)
+
+    {
+
+        LibraryService service = new LibraryService();
+        BookFileStore store = new BookFileStore(
+                Path.of("data", "books.csv"));
+        try {
+            for (Book book : store.load()) {
+                service.addBook(book);
+            }
+            System.out.println("Loaded: " + service.getBookCount());
+        }
+        catch (IOException ex) {
+            System.out.println("Load failed: " + ex.getMessage());
+            return;
+        }
+        if (service.getBookCount() == 0) {
+            Book dune = new Book("Dune", "Frank Herbert", 412);
+            Book cleanCode = new Book(
+                    "Clean Code", "Robert C. Martin", 464);
+            service.addBook(dune);
+            service.addBook(cleanCode);
+            service.
+        ("Dune", 7);
+        }
+        for (Book book : service.getBooks()) {
+            System.out.println(
+                    book.getTitle() + " - " +
+                            book.getStatus());
+        }
+        try {
+            store.save(service.getBooks());
+            System.out.println("Saved: " + service.getBookCount());
+        }
+        catch (IOException ex) {
+            System.out.println("Save failed: " + ex.getMessage());
         }
 
     }
