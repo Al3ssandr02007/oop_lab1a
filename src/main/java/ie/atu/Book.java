@@ -5,7 +5,6 @@ public class Book {
     private String title;
     private String author;
     private int pageCount;
-    private boolean borrowed;
     private BookStatus status;
 
     public Book(String title, String author, int pageCount) {
@@ -19,10 +18,11 @@ public class Book {
             throw new IllegalArgumentException("Page count cannot be less than 1");
         }
 
+
+
         this.title = title;
         this.author = author;
         this.pageCount = pageCount;
-        this.borrowed = false;
         this.status = BookStatus.AVAILABLE;
     }
 
@@ -41,25 +41,19 @@ public class Book {
     public BookStatus getStatus() {
         return status;
     }
-
-    public boolean isBorrowed() {
-        return borrowed;
-    }
-
     public void borrowBook() {
-        if (status == BookStatus.ON_LOAN)
-        {
-            throw new IllegalStateException("Book is on loan");
+        if (status == BookStatus.ON_LOAN) {
+            throw new IllegalStateException(
+                    "Book is already on loan");
         }
         status = BookStatus.ON_LOAN;
     }
 
-    public void returnBook()
-    {
-        if (status == BookStatus.AVAILABLE)
-        {
+    public void returnBook() {
+        if (status == BookStatus.AVAILABLE) {
             throw new IllegalStateException("Book is already available");
         }
         status = BookStatus.AVAILABLE;
     }
+
 }

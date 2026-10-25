@@ -7,7 +7,6 @@ import java.util.List;
 public class LibraryService {
 
     private static final int MAX_LOAN_DAYS = 14;
-
     private final List<Book> books = new ArrayList<>();
 
     public void addBook(Book book) {
@@ -78,3 +77,4 @@ public class LibraryService {
     }
 
 }
+
