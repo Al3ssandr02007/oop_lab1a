@@ -1,3 +1,4 @@
+
 package ie.atu;
 
 public class Book {
@@ -25,18 +26,15 @@ public class Book {
         this.status = BookStatus.AVAILABLE;
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
-    public String getAuthor()
-    {
+    public String getAuthor() {
         return author;
     }
 
-    public int getPageCount()
-    {
+    public int getPageCount() {
         return pageCount;
     }
 

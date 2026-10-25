@@ -72,5 +72,9 @@ public class LibraryService {
         book.returnBook();
         return true;
     }
+    public List<Book> getBooks() {
+        return new ArrayList<>(books);
+    }
+
 }
 
