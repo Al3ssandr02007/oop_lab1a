@@ -1,9 +1,5 @@
 package ie.atu;
 
-
-
-
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -35,8 +31,7 @@ public class Main {
                     "Clean Code", "Robert C. Martin", 464);
             service.addBook(dune);
             service.addBook(cleanCode);
-            service.
-        ("Dune", 7);
+            service.loanBook("Dune", 7);
         }
         for (Book book : service.getBooks()) {
             System.out.println(
