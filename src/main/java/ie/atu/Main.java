@@ -38,6 +38,7 @@ public class Main {
                     book.getTitle() + " - " +
                             book.getStatus());
         }
+
         try {
             store.save(service.getBooks());
             System.out.println("Saved: " + service.getBookCount());
